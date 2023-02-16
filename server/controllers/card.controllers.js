@@ -36,14 +36,14 @@ module.exports.listar = (req, res) => {
 
 //editar
 module.exports.editar = (req, res) => {
-    Autores.findOneAndUpdate({_id:req.params.id},req.body,{new:true,runValidators:true})
+    Model.findOneAndUpdate({_id:req.params.id},req.body,{new:true,runValidators:true})
     .then((autores) =>res.json(autores))
     .catch(err=>res.json(err))
 }
 
 //eliminar
 module.exports.eliminar=(request,response)=>{
-    Purchases.deleteOne({_id: request.params.id}  )
+    Model.deleteOne({_id: request.params.id}  )
     .then(deleteConfirmation =>response.json(deleteConfirmation))
     .catch(err=>response.json(err))
 }

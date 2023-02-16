@@ -10,7 +10,8 @@ const Schema = new mongoose.Schema({
         required:[true,"Comment is required aa"]
     },
     user:{
-        type:String
+        type:String,
+        required:[true,"User required, we're in Austria"]
     },
     fromBoard:{
         type:String

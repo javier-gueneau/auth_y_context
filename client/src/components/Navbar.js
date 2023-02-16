@@ -17,7 +17,7 @@ const Navbar=()=>{
     return(
 
         <div className='navbar'>
-                <h1>Posting Wall</h1>
+                <h1>Note Wall3</h1>
                 <div className='navbar2' >
                     <h4>
                       {userDetail.user.name}

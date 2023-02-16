@@ -20,8 +20,22 @@ const Dashboard=()=>{
   
     return(
 
+
+        
         <div className="App">
             <Navbar/>
+
+
+        <div className='container-fluid' >
+            <div className='row'>
+                <div className='col-sm-12' >col one</div>
+                <div className='col-sm-12' >col two</div>
+
+            </div>
+            aa
+        </div>
+
+
             <Main_container/>
         </div>
 

@@ -1,20 +1,24 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import Adding_board_comp from "./Adding_board_comp"
+import Adding_card_comp from "./Adding_card_comp"
 import Board from "./Board"
+import Card from "./Card"
 import Test_comp from "./Test_comp"
+import Prueba_prevent_default from '../screens/Prueba_prevent_default'
 
 const Main_container=()=>{
-    const [boards,setBoards]=useState([])
+    const [cards,setCards]=useState([])
     const[adding_board,setAdding_board]=useState(false)
 
     let userDetail=JSON.parse(localStorage.getItem('user'))
 
     useEffect(()=>{
-        axios.get('http://localhost:8000/api/board/list')
+        axios.get('http://localhost:8000/api/card/list')
         .then(res=>{
             console.log('this is res.data....(main container) ', res.data)
-            setBoards(res.data)
+            setCards(res.data)
         })
     },[])
 
@@ -27,22 +31,31 @@ const Pushme=e=>{
     setAdding_board(true)
 }
 
-    return(
-        <div className="main_container">
+const go_here=e=>{
+    console.log('prevent default prueba')
+}
 
-            <button onClick={e=>Pushme()} >Add board...</button>
+    return(
+        <div className="container-fluid">
+
+            <button onClick={e=>Pushme()} >Add Card...</button>
 
             <div className="cool_container">
-                {boards.map((a,i)=>{
+            {cards.map((a,i)=>{
                     return(
-                        <Board key={i} title={a.title} id={a._id} user={userDetail.user.name} boards={boards} />    
+                        <Card key={i} title={a.title} comment={a.comment} id={a._id} current_user={userDetail.user.name} user={a.user} />    
                     )
                     })}
                 
+
                 {adding_board?
-                    <Adding_board_comp />
+                    <Adding_card_comp user={userDetail.user.name} />
                     :''
                 }
+
+
+
+
             </div>
            
         </div>

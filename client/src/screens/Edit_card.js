@@ -1,31 +1,72 @@
 import axios from "axios";
-import { useEffect } from "react";
-import { Link, useParams } from "react-router-dom"
+import { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom"
 import Navbar from "../components/Navbar"
 
 const Edit_card=props=>{
 
     const {id}=useParams();
+    const[title,setTitle]=useState('')
+    const[comment,setComment]=useState('')
+    const[user,setUser]=useState('')
+    const navigate=useNavigate()
 
-    /* useEffect(()=>{
+    useEffect(()=>{
         axios.get(`http://localhost:8000/api/card/${id}`)
-    })
-    .then(res=>{
-        console.log('en then ?? ')
+        .then(res=>{
+            console.log('en then ?? ')
+            console.log('res coming....', res)
+            console.log('res_data coming....', res.data.data)
+            setTitle(res.data.data.title)
+            setComment(res.data.data.comment)
+            setUser(res.data.data.user)
+        },[])
+        .catch(err=>{
+            console.log('catch')
+        })
     },[])
-    .catch(err=>{
-        console.log('catch')
-    }) */
 
+    const submit_form=e=>{
+        e.preventDefault();
+        axios.put(`http://localhost:8000/api/card/${id}`,{
+            title:`${title}`,
+            comment:`${comment}`
+        })
+        .then(res=>{
+            console.log('en RES ..... EDIT CARD')
+            console.log('esto es res:',res)
+        })
+        .catch(err=>{
+            console.log('were in catch ??')
+        })
 
-    console.log('hi?')
-    console.log(useParams)
+        console.log('in submit still jeje ')
+        navigate('/')
+    }
+
+    
 
     return(
         <div>
             <Navbar/>
-a
-            title IN EDIT CARD IS  ....{id} .....
+
+            <h1>{title} </h1>
+            <p>{comment} </p>
+            <p className="p_pequeno" >Created by user : {user} </p>
+
+            <form onSubmit={submit_form} className='form_v' >
+                <label> Title
+                    <input type='text' name='title' onChange={e=>setTitle(e.target.value)} />
+                </label>
+                <label> Comment
+
+                <textarea id='ww' name='comment' rows='5' cols='50' onChange={e=>setComment(e.target.value)} />
+                </label>
+                
+                
+                <button  >push</button>
+            </form>
+
 
 
             <Link to="/">Back to main</Link>

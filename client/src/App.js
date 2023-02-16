@@ -23,13 +23,10 @@ function App() {
           <Routes>
               
                 <Route path='/login' element={<Login_screen/> } />
-
                 <Route path='/register' element={<Register_screen/> } />
-
                 <Route path='/add_card' element={<Add_card/> } />
                 <Route path='/edit_card' element={<Edit_card/> } />
                 <Route path='/:id' element={<Edit_card/> } />
-                
                 <Route path='/' element={<Dashboard/> } />
 
 

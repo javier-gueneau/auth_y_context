@@ -1,7 +1,7 @@
 
 
 .navbar{
-  background-color: gray;
+  background-color: whitesmoke;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,7 +24,7 @@
 }
 
 .cool_container{
-  background-color: gray;
+  background-color: black;
   display: flex;
   flex-wrap: wrap;
 }
@@ -41,12 +41,35 @@
   margin: 1%;
 }
 
-.Note{
-  background-color: yellow;
-  width: 95%;
+.card{
+  background-color: lightcyan;
+  width: 25%;
   padding: 0.5%;
   margin: 1%;
 
+}
+
+.p_large{
+  background-color: whitesmoke;
+  font-size: 140%;
+  margin: 0%;
+  padding: 0%;
+}
+
+.p_tight{
+  background-color: whitesmoke;
+  margin: 0%;
+  padding: 0%;
+}
+
+.p_pequeno{
+  font-size: 70%;
+}
+
+.form_v{
+  background-color: yellow;
+  display: flex;
+  flex-direction: column;
 }
 
 .test_comp{
