@@ -10,7 +10,7 @@
 }
 
 .navbar2{
-  background-color: lightgray;
+  background-color: whitesmoke;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,6 +49,20 @@
 
 }
 
+.card-body{
+  /* background-color: red; */
+  padding: 1% 0%;
+  margin: 1% -2px;
+}
+
+.card_bottom{
+  /* background-color: yellow; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .p_large{
   background-color: whitesmoke;
   font-size: 140%;
@@ -67,7 +81,7 @@
 }
 
 .form_v{
-  background-color: yellow;
+  background-color: whitesmoke;
   display: flex;
   flex-direction: column;
 }

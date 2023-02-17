@@ -25,14 +25,22 @@ const handleDelete=()=>{
 
 
     return(
-        <div className="card">
+        <div className="card" /* style="width: 18rem;" */ >
             
-            <p className="p_large">{title}</p>
-            <Link to={`/${id}`}> 
-            <p className="p_tight">{comment}</p>
-            </Link>
+            <div className="card-body" >
+            <h5 className="card-title">{title}</h5>
+                <p className="card-text">{comment}</p>
             <p>Created by {user} </p>
-            <button onClick={e=>handleDelete()} >Delete card</button>
+
+            <div className="card_bottom" >
+                <Link to={`/${id}`}> 
+                <button  className="btn btn-outline-primary">Edit...</button>
+                </Link>
+
+                <button  className="btn btn-outline-dark" onClick={e=>handleDelete()} >Delete card</button>
+
+            </div>
+            </div>
         </div>
     )
 }

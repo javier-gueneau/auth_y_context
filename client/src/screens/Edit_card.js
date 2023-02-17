@@ -54,17 +54,17 @@ const Edit_card=props=>{
             <p>{comment} </p>
             <p className="p_pequeno" >Created by user : {user} </p>
 
-            <form onSubmit={submit_form} className='form_v' >
+            <form onSubmit={submit_form} className='form-group' >
                 <label> Title
-                    <input type='text' name='title' onChange={e=>setTitle(e.target.value)} />
+                    <input className="form-control" type='text' name='title' onChange={e=>setTitle(e.target.value)} />
                 </label>
                 <label> Comment
 
-                <textarea id='ww' name='comment' rows='5' cols='50' onChange={e=>setComment(e.target.value)} />
+                <textarea className="form-control" name='comment' rows='5' cols='50' onChange={e=>setComment(e.target.value)} />
                 </label>
                 
                 
-                <button  >push</button>
+                <button className="btn btn-outline-primary" >push</button>
             </form>
 
 

@@ -18,7 +18,8 @@ const Main_container=()=>{
         axios.get('http://localhost:8000/api/card/list')
         .then(res=>{
             console.log('this is res.data....(main container) ', res.data)
-            setCards(res.data)
+            const data_rev=res.data.reverse()
+            setCards(data_rev)
         })
     },[])
 
@@ -38,23 +39,19 @@ const go_here=e=>{
     return(
         <div className="container-fluid">
 
-            <button onClick={e=>Pushme()} >Add Card...</button>
+            <button className="btn btn-outline-primary" onClick={e=>Pushme()} >Add Card...</button>
 
             <div className="cool_container">
+                {adding_board?
+                    <Adding_card_comp user={userDetail.user.name} />
+                    :''
+                }
             {cards.map((a,i)=>{
                     return(
                         <Card key={i} title={a.title} comment={a.comment} id={a._id} current_user={userDetail.user.name} user={a.user} />    
                     )
                     })}
                 
-
-                {adding_board?
-                    <Adding_card_comp user={userDetail.user.name} />
-                    :''
-                }
-
-
-
 
             </div>
            

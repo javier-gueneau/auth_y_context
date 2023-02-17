@@ -13,7 +13,7 @@ const Adding_card_comp=({user})=>{
         setHasTitle(true)
         axios.post('http://localhost:8000/api/card/create',{
         title:`${title}`,
-        comment:'Add comment...',
+        comment:'Edit to add comment...',
         user:`${user}`
 
     })
@@ -28,7 +28,7 @@ const Adding_card_comp=({user})=>{
         <div className="card" >
             <form onSubmit={handleSubmit} >
                 <label>
-                    <input type='text' onChange={e=>setTitle(e.target.value)} placeholder='Board name...' />
+                    <input type='text' onChange={e=>setTitle(e.target.value)} placeholder='Card name...' />
                 </label>
                 <button>OK</button>
             </form>

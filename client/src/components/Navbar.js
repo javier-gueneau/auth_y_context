@@ -17,13 +17,12 @@ const Navbar=()=>{
     return(
 
         <div className='navbar'>
-                <h1>Note Wall3</h1>
+                <h1>Note Wall4</h1>
                 <div className='navbar2' >
                     <h4>
                       {userDetail.user.name}
                     </h4>
-                    <button onClick={()=>navigate('/login') } >log out</button>
-                    <button onClick={e=>handleClick() } >action</button>
+                    <button className="btn btn-outline-dark" onClick={()=>navigate('/login') } >log out</button>
                 </div>
         </div>
     )
