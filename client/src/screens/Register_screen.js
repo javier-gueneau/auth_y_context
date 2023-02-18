@@ -132,7 +132,7 @@ const handleSubmit=e=>{
         </form>
   
   
-  <Link to='/login'> Login </Link>
+  <Link to='/'> Login </Link>
   
         </div>
 

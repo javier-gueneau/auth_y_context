@@ -56,7 +56,7 @@ const handleSubmit=e=>{
 
           const users=res.data
           //localStorage.setItem('jwt',users.auth_token)
-          localStorage.setItem('user',JSON.stringify(users))
+          //localStorage.setItem('user',JSON.stringify(users))
           //localStorage.setItem('user',users.user.name)
           console.log('users is ....',users)
           console.log('users.user.name ....',users.user.name)
@@ -77,7 +77,7 @@ const handleSubmit=e=>{
           else{
             console.log('we are ok, we are in ELSE (of then)')
             setError('')
-            navigate('/')
+            navigate('/dashboard')
           }
 
         })

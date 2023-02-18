@@ -4,7 +4,7 @@ const Navbar=()=>{
 
     const navigate=useNavigate()
 
-    let userDetail=JSON.parse(localStorage.getItem('user'))
+    //let userDetail=JSON.parse(localStorage.getItem('user'))
   
     const handleClick=e=>{
         //e.preventDefault()
@@ -20,9 +20,9 @@ const Navbar=()=>{
                 <h1>Note Wall4</h1>
                 <div className='navbar2' >
                     <h4>
-                      {userDetail.user.name}
+                      Invitado
                     </h4>
-                    <button className="btn btn-outline-dark" onClick={()=>navigate('/login') } >log out</button>
+                    <button className="btn btn-outline-dark" onClick={()=>navigate('/') } >log out</button>
                 </div>
         </div>
     )

@@ -16,7 +16,7 @@ const Dashboard=()=>{
 
   const [titleOfPost,setTitleOfPost]=useState('')
   const[post,setPost]=useState('')
-  let userDetail=JSON.parse(localStorage.getItem('user'))
+  //let userDetail=JSON.parse(localStorage.getItem('user'))
   
     return(
 

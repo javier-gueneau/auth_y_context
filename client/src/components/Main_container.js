@@ -12,7 +12,7 @@ const Main_container=()=>{
     const [cards,setCards]=useState([])
     const[adding_board,setAdding_board]=useState(false)
 
-    let userDetail=JSON.parse(localStorage.getItem('user'))
+    //let userDetail=JSON.parse(localStorage.getItem('user'))
 
     useEffect(()=>{
         axios.get('http://localhost:8000/api/card/list')
@@ -43,12 +43,12 @@ const go_here=e=>{
 
             <div className="cool_container">
                 {adding_board?
-                    <Adding_card_comp user={userDetail.user.name} />
+                    <Adding_card_comp user='Invitado' />
                     :''
                 }
             {cards.map((a,i)=>{
                     return(
-                        <Card key={i} title={a.title} comment={a.comment} id={a._id} current_user={userDetail.user.name} user={a.user} />    
+                        <Card key={i} title={a.title} comment={a.comment} id={a._id} current_user='Invitado' user={a.user} />    
                     )
                     })}
                 

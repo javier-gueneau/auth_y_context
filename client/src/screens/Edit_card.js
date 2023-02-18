@@ -41,7 +41,7 @@ const Edit_card=props=>{
         })
 
         console.log('in submit still jeje ')
-        navigate('/')
+        navigate('/dashboard')
     }
 
     
@@ -69,7 +69,7 @@ const Edit_card=props=>{
 
 
 
-            <Link to="/">Back to main</Link>
+            <Link to="/dashboard">Back to main</Link>
 
         </div>
     )

@@ -11,11 +11,11 @@ const Add_card=()=>{
     const[post,setPost]=useState('')
     const[fromBoard,setFromBoard]=useState('')
     const navigate=useNavigate()
-    let userDetail=JSON.parse(localStorage.getItem('user'))
+    //let userDetail=JSON.parse(localStorage.getItem('user'))
     const[boards,setBoards]=useState([])
   
     const handleClick=e=>{
-        console.log('userDetail is ...', userDetail)
+        console.log('handle click')
     }
 
     useEffect(()=>{
@@ -32,13 +32,13 @@ const Add_card=()=>{
         axios.post('http://localhost:8000/api/card/create',{
             title:titleOfPost,
             comment:post,
-            user:userDetail.user.name,
+            user:'Prueba',
             fromBoard:fromBoard
         })
         .then(res=>{
             console.log('this is then , res ....', res)
-            console.log('this is user - userDetail ... ', userDetail)
-            console.log('this is user - userDetail-user-name ... ', userDetail.user.name)
+            //console.log('this is user - userDetail ... ', userDetail)
+            //console.log('this is user - userDetail-user-name ... ', userDetail.user.name)
             alert('alert testing')
             navigate('/')
         })
