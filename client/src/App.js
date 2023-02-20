@@ -9,32 +9,33 @@ import Dashboard_screen from './screens/Dashboard';
 import Add_card from './screens/Add_card';
 import Dashboard from './screens/Dashboard';
 import Edit_card from './screens/Edit_card';
+import UserContext from './contexts/user_context';
 
 
 function App() {
-
-
   
+  const navigate=useNavigate()
+const [usuario,setUsuario]=useState([])
+
   return (
-    <div className="App">
 
-         
-          
-          <Routes>
-              
-                <Route path='/dashboard' element={<Dashboard/> } />
-                <Route path='/register' element={<Register_screen/> } />
-                <Route path='/add_card' element={<Add_card/> } />
-                <Route path='/edit_card' element={<Edit_card/> } />
-                <Route path='/:id' element={<Edit_card/> } />
-                <Route path='/' element={<Login_screen/> } />
+      <UserContext.Provider value={{usuario,setUsuario}} >
 
+          <div className="App">
+                <Routes>
+                    
+                      <Route path='/dashboard' element={<Dashboard/> } />
+                      <Route path='/register' element={<Register_screen/> } />
+                      <Route path='/add_card' element={<Add_card/> } />
+                      <Route path='/edit_card' element={<Edit_card/> } />
+                      <Route path='/:id' element={<Edit_card/> } />
+                      <Route path='/' element={<Login_screen/> } />
 
-          </Routes>
-      
+                </Routes>
+            </div>
 
+      </UserContext.Provider>
 
-      </div>
   );
 }
 

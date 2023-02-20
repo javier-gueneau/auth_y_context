@@ -1,50 +1,26 @@
 import axios from 'axios';
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect, useContext} from 'react';
 import { Link, Navigate, useNavigate, useNavigation } from 'react-router-dom';
+import UserContext from '../contexts/user_context';
 //import moment from 'moment';
-//import Stock from '../components/Stock';
-//import Resumen from '../components/Resumen';
-/* 
-import List from '../components/List'; */
 
 
 const Login_screen=()=>{
-
     
-
-
-  // 10 29 1 es mi app nueva , probando apis, calls, Register, Login, etc.
-
-  const[title,setTitle]=useState('')
-
-  const [username,setUsername]=useState('')
+  const context=useContext(UserContext)
   
   const [password,setPassword]=useState('')
-  const[confirmPassword,setConfirmPassword]=useState('')
-
   const [user,setUser]=useState('')
-
   const[email,setEmail]=useState('')
   const[error,setError]=useState('')
-
   const navigate=useNavigate()
 
-const handleSubmit=e=>{
 
-
-
+  const handleSubmit=e=>{
+  
     e.preventDefault()
     console.log('. . . . . . new run')
-    //console.log('username ...', username)
-    //console.log('email ....', email)
-    //console.log('password ....', password)
-    //console.log('confirm pwd ...', confirmPassword)
-
-    // aqui hacer el axios Post de la info
-
-    //esta info está en MERN SPANISH - Full Stack Mern
-    // "Crear (Pt 2)"
-
+    
     axios.post('http://localhost:8000/api/user/login',{
       email,
       password,
@@ -60,15 +36,9 @@ const handleSubmit=e=>{
           //localStorage.setItem('user',users.user.name)
           console.log('users is ....',users)
           console.log('users.user.name ....',users.user.name)
-
-          setUser(users.user.name)
-
-
-          //console.log('this is res.data...', res.data)
-          //console.log('this is res.data.errors...', res.data.errors)
-          //console.log('this is OBJECT VALUES ...', Object.values(res.data.errors)[0] )
-          //console.log('this is OBJECT VALUES.name ...', Object.values(res.data.errors)[0].name )
-          //console.log('this is OBJECT VALUES.message ...', Object.values(res.data.errors)[0].message )
+          console.log('context is :', context)
+          
+          //setUser(users.user.name)
           
           if(res.data.errors){
             console.log('in app.js ... in error...')
@@ -77,6 +47,7 @@ const handleSubmit=e=>{
           else{
             console.log('we are ok, we are in ELSE (of then)')
             setError('')
+            context.setUsuario(res.data.user)
             navigate('/dashboard')
           }
 
